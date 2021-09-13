@@ -25,7 +25,9 @@ Data in the app consists of two models:
 - `Category` with following fields:
   - `id`
   - `name` - human-readable and shown in the frontend
-  - `ordering` - meant to be set manually by app's admin
+  - `ordering` - a numeric value to determine ordering of category list (as it is seen to 
+  the final user). For example, if category _Apples_ is meant to be after category _Potatoes_,
+  values in this field could be 2 and 1, respectively.
 - `Offer`, related many-to-one with `Category`, with following fields:
   - `id`
   - `title`
@@ -61,8 +63,6 @@ For the sake of simplicity, don't worry about the authentication process (so any
 - Cover the endpoints/models with basic tests (maybe factory_boy with Django integration will be handy?)
 
 - Containerize the whole project (maybe docker-compose will be handy? Also consider the database)
-
-- Take advantage of a component library like Angular Material (don't overthink the designs, just show us that you can work with components and query some data 🙂)
 
 ## Rules
 
