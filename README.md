@@ -10,24 +10,20 @@ We want to see how do you approach various problems and structure the code. This
 
 ## Tech stack
 
-- Django with Django REST Framework (DRF)
-
 - Angular
-
-- Any relational database supported by Django (that includes SQLite)
 
 ## Specification
 
-The main objective of this task is to build a simple CRUD app which consists of fundamental elements of a REST API and SPA. The app will be a portal with advertisements.
+The main objective of this task is to build a simple CRUD app which consists of fundamental elements SPA. The app will be a portal with advertisements.
 
 Data in the app consists of two models:
 
 - `Category` with following fields:
   - `id`
   - `name` - human-readable and shown in the frontend
-  - `ordering` - a numeric value to determine ordering of category list (as it is seen to 
-  the final user). For example, if category _Apples_ is meant to be after category _Potatoes_,
-  values in this field could be 2 and 1, respectively.
+  - `ordering` - a numeric value to determine ordering of category list (as it is seen to
+    the final user). For example, if category _Apples_ is meant to be after category _Potatoes_,
+    values in this field could be 2 and 1, respectively.
 - `Offer`, related many-to-one with `Category`, with following fields:
   - `id`
   - `title`
@@ -35,37 +31,35 @@ Data in the app consists of two models:
   - `price`
   - `created_at` - timestamp
 
-Endpoints which should be included in the final project:
+Endpoints which are available on https://backend-recruitment-api.herokuapp.com/ :
 
 - `GET /offers` - returns all offers from the database with their ID, title, price and category ID.  
-  _optionally_: accepts category ID as a query parameter, named `category`. In this case, returns offers filtered accordingly.
+  Accepts category ID as a query parameter, named `category`. In this case, returns offers filtered accordingly.
 - `GET /category` - returns all categories ordered by `ordering` field
 - `GET /offers/{id}` - returns a single offer, with all fields associated with it.
 - `POST PUT DELETE /offers/{id}` - manipulate a single offer. For `POST` and `PUT`, all fields are obligatory.
 - `POST PUT DELETE /category/{id}` - manipulate category. For `POST` and `PUT`, all fields are obligatory.
 
-Allow manipulating offers and categories through Django admin site and DRF's default browsable api.
-
-In frontend, implement the following:
+**In frontend, implement the following:**
 
 - displaying a list of offers,
 - display each offer in detail (after clicking on it in the list view),
-- _optionally_: in offer list view, implement filtering offers based on category
+- in offer list view, implement filtering offers based on category
+- separate view with form to create offer
+- option to remove offers
 
 For the sake of simplicity, don't worry about the authentication process (so anyone can use all endpoints).
 
 ## Would be awesome if you (with hints):
 
-- Take advantage of DRF goodies like viewsets, mixins etc.
-
-- What about data validation? serializer or database level?
-
-- Cover the endpoints/models with basic tests (maybe factory_boy with Django integration will be handy?)
-
-- Containerize the whole project (maybe docker-compose will be handy? Also consider the database)
+- Create docker file for application
+- Deploy app on heroku or similar platform
+- Cover functionality with tests
 
 ## Rules
 
 The application's code should be kept in a public repository so that we can read it, pull it and build it ourselves. Remember to include README file with basic notes on application requirements and setup - we should be able to get it easily up and running.
 
 **Good luck!** If you have any questions feel free to ping us!
+
+**In case of problems with API please contact tomasz.rzesikowski@insert.com.pl**
